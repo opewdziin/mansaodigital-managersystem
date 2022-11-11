@@ -16,7 +16,7 @@ $new_password = $confirm_password = "";
 $new_password_err = $confirm_password_err = "";
  
 // Processando dados do formulário quando o formulário é enviado
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST") {
  
     // Validar nova senha
     if(empty(trim($_POST["new_password"]))){
