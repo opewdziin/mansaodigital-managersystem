@@ -90,22 +90,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <p>Selecione o Tipo:</p>
                     <select name="type" id="type" class="form-control <?php echo (!empty($type_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $type; ?>">
-                        <option value="entrada">Entrada</option>
-                        <option value="saida">Saída</option>
+                        <option value="Entrada">Entrada</option>
+                        <option value="Saida">Saída</option>
                     </select>
                     <span class="invalid-feedback"><?php echo $type_err; ?></span>
                 </div>
                 <div class="form-group">
                     <p>Selecione o uso:</p>
                     <select name="occupation" id="occupation" class="form-control <?php echo (!empty($occupation_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $occupation; ?>">
-                        <option value="podcast">Podcast</option>
-                        <option value="hospedagem">Hospedagem</option>
-                        <option value="fotografia">Fotografia</option>
-                        <option value="spa">Spa</option>
-                        <option value="bronzeamento">Bronzeamento</option>
-                        <option value="eventos">Eventos</option>
-                        <option value="coworking">Coworking</option>
-                        <option value="marketing">Marketing</option>
+                        <option value="Podcast">Podcast</option>
+                        <option value="Hospedagem">Hospedagem</option>
+                        <option value="Fotografia">Fotografia</option>
+                        <option value="Spa">Spa</option>
+                        <option value="Bronzeamento">Bronzeamento</option>
+                        <option value="Eventos">Eventos</option>
+                        <option value="Coworking">Coworking</option>
+                        <option value="Marketing">Marketing</option>
                     </select>
                     <span class="invalid-feedback"><?php echo $occupation_err; ?></span>
                 </div>
