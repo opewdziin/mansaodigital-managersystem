@@ -1,8 +1,6 @@
 <?php
-// Inicialize a sessão
 session_start();
  
-// Verifique se o usuário está logado, se não, redirecione-o para uma página de login
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
@@ -22,7 +20,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
     <h1 class="my-5">Oi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Bem vindo ao nosso site.</h1>
     <p>
-        <a href="../table/create.php" class="btn btn-success">Criar uma tabela</a>
+        <a href="../table/index.php" class="btn btn-success">Ver as tabela</a>
         <a href="reset-password.php" class="btn btn-warning">Redefina sua senha</a>
         <a href="logout.php" class="btn btn-danger ml-3">Sair da conta</a>
     </p>
