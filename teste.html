@@ -1,97 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <link rel="stylesheet" href="assets/mansaodigital.css">
-    <title>Page Title</title>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Page Title</title>
 </head>
-<script>
-// Jquery Dependency
 
-$("input[data-type='currency']").on({
-    keyup: function() {
-      formatCurrency($(this));
-    },
-    blur: function() { 
-      formatCurrency($(this), "blur");
-    }
-});
-
-
-function formatNumber(n) {
-  // format number 1000000 to 1,234,567
-  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
-
-
-function formatCurrency(input, blur) {
-  var input_val = input.val();
-  
-  if (input_val === "") { return; }
-  
-  var original_len = input_val.length;
-
-  var caret_pos = input.prop("selectionStart");
-    
-  if (input_val.indexOf(".") >= 0) {
-
-    var decimal_pos = input_val.indexOf(".");
-
-    var left_side = input_val.substring(0, decimal_pos);
-    var right_side = input_val.substring(decimal_pos);
-
-    left_side = formatNumber(left_side);
-
-    right_side = formatNumber(right_side);
-    
-    if (blur === "blur") {
-      right_side += "00";
-    }
-    
-    right_side = right_side.substring(0, 2);
-
-    input_val = "R$" + left_side + "." + right_side;
-
-  } else {
-    input_val = formatNumber(input_val);
-    input_val = "R$" + input_val;
-    
-    if (blur === "blur") {
-      input_val += ".00";
-    }
-  }
-  
-  input.val(input_val);
-
-  var updated_len = input_val.length;
-  caret_pos = updated_len - original_len + caret_pos;
-  input[0].setSelectionRange(caret_pos, caret_pos);
-}
-</script>
 <body>
-    <form>
-        <p>Selecione o Tipo:</p>
-        <select name="type" id="type">
-            <option value="entrada">Entrada</option>
-            <option value="saida">Saída</option>
-        </select>
 
-        <p>Selecione o uso:</p>
-        <select name="occupation" id="occupation">
-            <option value="podcast">Podcast</option>
-            <option value="hospedagem">Hospedagem</option>
-            <option value="fotografia">Fotografia</option>
-            <option value="spa">Spa</option>
-            <option value="bronzeamento">Bronzeamento</option>
-            <option value="eventos">Eventos</option>
-            <option value="coworking">Coworking</option>
-            <option value="marketing">Marketing</option>
-        </select>
-        <p>Insire a data:</p>
-        <input type="date" id="datemax" name="datemax" max="2022-12-31">
+  <div class="container">
+    <a href="../table/create.php" target="_blank" rel="noopener noreferrer" class="btn btn-success">Criar tabela</a>
+  </div>
 
-        <p>Valor:</p>
-        <input type="text" name="currency-field" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="R$1000">
-    </form>
 </body>
+
 </html>

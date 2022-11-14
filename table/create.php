@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="invalid-feedback"><?php echo $currency_err; ?></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Redefinir">
+                    <input type="submit" class="btn btn-primary" value="Redefinir" onclick="javascript:window.open('', '_self', '').close()">
                     <a class="btn btn-link ml-2" href="index.php">Cancelar</a>
                 </div>
             </form>
