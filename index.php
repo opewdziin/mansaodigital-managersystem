@@ -21,6 +21,9 @@ require_once "./utils/config.php";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body{ font: 14px sans-serif; text-align: center; }
+    </style>
     <title>Mansão Digital - Página Inicial</title>
 </head>
 <body>
@@ -40,5 +43,10 @@ require_once "./utils/config.php";
         </div>
     </header>
     <br>
+    <h1 class="my-5">Olá, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Bem vindo(a) ao sistema de gestão da Mansão Digital.</h1>
+    <p>
+        <a href="../table/viewenter.php" class="btn btn-success">Ver a planilha</a>
+        <a href="../dashboard/logout.php" class="btn btn-danger ml-3">Sair da conta</a>
+    </p>
 </body>
 </html>

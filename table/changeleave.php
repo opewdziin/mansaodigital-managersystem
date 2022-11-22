@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_author = htmlspecialchars($_SESSION["username"]);
             
             if($stmt->execute()){
-                header("location: index.php");
+                header("location: viewenter.php");
             } else{
                 echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
             }
@@ -105,16 +105,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
     <center>
         <div class="wrapper">
-            <p>Por favor, preencha este formulário para atualizar a planilha.</p>
+            <p>Por favor, preencha este formulário para editar a planilha.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-                <div class="form-group">
-                    <p>Selecione o Tipo:</p>
-                    <select name="type" id="type" class="form-control <?php echo (!empty($type_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $type; ?>">
-                        <option value="Entrada">Entrada</option>
-                        <option value="Saida">Saída</option>
-                    </select>
-                    <span class="invalid-feedback"><?php echo $type_err; ?></span>
-                </div>
                 <div class="form-group">
                     <p>Selecione o uso:</p>
                     <select name="occupation" id="occupation" class="form-control <?php echo (!empty($occupation_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $occupation; ?>">
@@ -136,12 +128,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <p>Valor:</p>
-                    <input type="text" name="currency" id="currency" pattern="^\R$\r$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="R$1000" class="form-control <?php echo (!empty($currency_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $currency; ?>">
+                    <input type="number" name="currency" id="currency" value="" data-type="currency" placeholder="R$1000" class="form-control <?php echo (!empty($currency_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $currency; ?>">
                     <span class="invalid-feedback"><?php echo $currency_err; ?></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Redefinir">
-                    <a class="btn btn-link ml-2" href="index.php">Cancelar</a>
+                    <input type="submit" class="btn btn-primary" value="Adicionar">
+                    <a class="btn btn-link ml-2" href="../index.php">Cancelar</a>
                 </div>
             </form>
         </div>  
