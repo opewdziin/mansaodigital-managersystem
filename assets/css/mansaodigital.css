@@ -1,69 +1,73 @@
-body {
-  font: 14px sans-serif;
-}
-.wrapper { 
-  width: 360px; padding: 20px;
-}
-input[type=date] {
-    padding: 10px;
-    margin: 2px 0;
-    border: thin solid black;
-    border-radius: 4px;
-}
-input[type=text] {
-    padding: 10px;
-    margin: 2px 0;
-    border: thin solid black;
-    border-radius: 4px;
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
-select {
-    background-color: white;
-    border: thin solid black;
-    border-radius: 4px;
-    display: inline-block;
-    font: inherit;
-    line-height: 1.5em;
-    padding: 0.5em 3.5em 0.5em 1em;
-  
-    margin: 0;      
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+header{
+  width: 100vw;
+  height: 100px;
+  border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+  font-family: 'Poppins';
 }
 
-select.minimal {
-    background-image:
-      linear-gradient(45deg, transparent 50%, gray 50%),
-      linear-gradient(135deg, gray 50%, transparent 50%),
-      linear-gradient(to right, #ccc, #ccc);
-    background-position:
-      calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - 2.5em) 0.5em;
-    background-size:
-      5px 5px,
-      5px 5px,
-      1px 1.5em;
-    background-repeat: no-repeat;
-  }
+header .inner{
+  width: 1300px; /* This is the inner width of the content inside of your header (80%, etc) */
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
 
-select.minimal:focus {
-    background-image:
-      linear-gradient(45deg, green 50%, transparent 50%),
-      linear-gradient(135deg, transparent 50%, green 50%),
-      linear-gradient(to right, #ccc, #ccc);
-    background-position:
-      calc(100% - 15px) 1em,
-      calc(100% - 20px) 1em,
-      calc(100% - 2.5em) 0.5em;
-    background-size:
-      5px 5px,
-      5px 5px,
-      1px 1.5em;
-    background-repeat: no-repeat;
-    border-color: green;
-    outline: 0;
-  }
+header .logo{
+  display: table;
+  height: 100%;
+  float: left;
+}
+
+header .logo div{
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+header .logo img{
+  height: 50px;
+  margin-top: 5px; /* Optical alignment of the logo */
+}
+
+header nav{
+  float: right;
+  height: 100%;
+}
+
+header nav li{
+  display: table;
+  height: 100%;
+  float: left;
+  margin-right: 30px;
+}
+
+header nav li:last-of-type{
+  margin-right: 0;
+}
+
+header nav span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+header nav a{
+  color: #101010;
+}
+
+header nav .button{
+  background-color: #1ab26b; /* This HEX is the color of the button */
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+header nav .button:hover{
+  filter: brightness(1.05);
+}

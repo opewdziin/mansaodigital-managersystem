@@ -8,35 +8,71 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 require_once "../utils/config.php";
 ?>
 
-<html>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Mansão Digital - Gerenciador</title>
-    <style>
-        .menu {
-            float:left;
-            width:23%;
-            height:1250px;
-            border:none;
-        }
-        .mainContent {
-            float:left;
-            width: 75vw;
-            height: 1250px;
-            border:none;
-        }
-        .container {
-            height: 100vh;
-            width: 100vw;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../assets/css/mansaodigital.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Mansão Digital - Planilha</title>
 </head>
-    <body>
-        <iframe id="choices" class="menu" name="choices" src="./../teste.html"></iframe>
-        <div class="container">
-            <iframe id="main" class="mainContent" name="main" src="./api/enter.php"></iframe>
+<body>
+<header>
+        <div class="inner">
+            <div class="logo">
+                <div>
+                    <img src="../assets/img/logotipo.png" alt="Mansão Digital logo">
+                </div>
+            </div>
+
+            <nav>
+                <li><span><a href="../table/index.php">Planilha</a></span></li>
+                <li><span><a href="../table/create.php">Adicionar Planilha</a></span></li>
+                <li><span><a href="../dashboard/logout.php" class="button">Desconectar</a></span></li>
+            </nav>
         </div>
-    </body>
+    </header>
+    <br>
+    <div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Data</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Valor</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                $link = mysqli_connect("localhost", "root", "", "mansaodigital");
+                $query = mysqli_query($link, "SELECT * FROM services ORDER by id");
+                while($row = $query->fetch_array()) {
+                    echo "<tr>";
+                    echo "<th scope="."row".">".$row['id']."</th>";
+                    $date=date_create($row['datestart']);
+                    echo "<td>" . date_format($date, "d/m/Y") . "</td>";
+                    echo "<td>" . $row['occupation'] . "</td>";
+                    echo "<td>R$" . $row['pricestart'] . "</td>";
+                    echo "<td><select name="."options".">";
+                    echo "<option value=".""."></option>";
+                    echo "<option value="."change".">Editar</option>";
+                    echo "<option value="."delete".">Excluir</option>";
+                    echo "<option value="."create-exit".">Criar saída</option>";
+                    echo "</select></td>";
+                    echo "</tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+    </div>
+</body>
 </html>

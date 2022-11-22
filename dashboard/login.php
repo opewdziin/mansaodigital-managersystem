@@ -70,14 +70,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Mansão Digital - Login</title>
+    <link rel="stylesheet" href="../assets/css/mansaodigital.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         body{ font: 14px sans-serif; }
         .wrapper{ width: 360px; padding: 20px; }
     </style>
 </head>
 <body>
+<header>
+        <div class="inner">
+            <div class="logo">
+                <div>
+                    <img src="../assets/img/logotipo.png" alt="Mansão Digital logo">
+                </div>
+            </div>
+
+            <nav>
+                <li><span><a href="../table/index.php">Planilha</a></span></li>
+                <li><span><a href="../table/create.php">Adicionar Planilha</a></span></li>
+                <li><span><a href="../dashboard/logout.php" class="button">Desconectar</a></span></li>
+            </nav>
+        </div>
+    </header>
+    <br>
     <center>
         <div class="wrapper">
             <h2>Login</h2>
