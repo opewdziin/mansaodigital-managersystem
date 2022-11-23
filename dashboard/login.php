@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
-<header>
+    <header>
         <div class="inner">
             <div class="logo">
                 <div>
@@ -92,8 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
 
             <nav>
-                <li><span><a href="../table/index.php">Planilha</a></span></li>
-                <li><span><a href="../table/create.php">Adicionar Planilha</a></span></li>
+                <li><span><a href="../index.php">Página Inicial</a></span></li>
                 <li><span><a href="../dashboard/logout.php" class="button">Desconectar</a></span></li>
             </nav>
         </div>

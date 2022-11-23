@@ -15,42 +15,34 @@ $new_password = $confirm_password = "";
 $new_password_err = $confirm_password_err = "";
  
 if($_SERVER["REQUEST_METHOD"] == "POST") {
- 
-    if(empty(trim($_POST["type"]))){
-        $type_err = "Por favor insira a nova senha.";     
-    } else{
-        $type = trim($_POST["type"]);
-    }
     
     if(empty(trim($_POST["occupation"]))){
-        $occupation_err = "Por favor insira a nova senha.";     
+        $occupation_err = "Ei! Preciso que você selecione o serviço";     
     } else{
         $occupation = trim($_POST["occupation"]);
     }    
 
     if(empty(trim($_POST["datestart"]))){
-        $datestart_err = "Por favor insira a nova senha.";     
+        $datestart_err = "Ei! Preciso que você coloque a data";     
     } else{
         $datestart = trim($_POST["datestart"]);
     }
 
     if(empty(trim($_POST["currency"]))){
-        $currency_err = "Por favor insira a nova senha.";     
+        $currency_err = "Ei! Preciso que você coloque o valor.";     
     } else{
         $currency = trim($_POST["currency"]);
     }
 
     if(empty($type_err) && empty($occupation_err) && empty($datestart_err) && empty($currency_err)) {
-        $sql = "INSERT INTO services (type, occupation, staffuser, datestart, pricestart, datefinish, pricefinish, description) VALUES (:type, :occupation, :author, :datestart, :pricestart, null, null, null)";
+        $sql = "INSERT INTO services (type, occupation, staffuser, datestart, pricestart) VALUES ('Entrada', :occupation, :author, :datestart, :pricestart)";
         
         if($stmt = $pdo->prepare($sql)){
-            $stmt->bindParam(":type", $param_type, PDO::PARAM_STR);
             $stmt->bindParam(":occupation", $param_occupation, PDO::PARAM_STR);
             $stmt->bindParam(":datestart", $param_datestart, PDO::PARAM_STR);
             $stmt->bindParam(":pricestart", $param_pricestart, PDO::PARAM_STR);
             $stmt->bindParam(":author", $param_author, PDO::PARAM_STR);
             
-            $param_type = $type;
             $param_occupation = $occupation;
             $param_datestart = $datestart;
             $param_pricestart = $currency;
@@ -96,8 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <nav>
-                <li><span><a href="../table/index.php">Planilha</a></span></li>
-                <li><span><a href="../table/create.php">Adicionar Planilha</a></span></li>
+                <li><span><a href="../index.php">Página Inicial</a></span></li>
                 <li><span><a href="../dashboard/logout.php" class="button">Desconectar</a></span></li>
             </nav>
         </div>
@@ -107,14 +98,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="wrapper">
             <p>Por favor, preencha este formulário para atualizar a planilha.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-                <div class="form-group">
-                    <p>Selecione o Tipo:</p>
-                    <select name="type" id="type" class="form-control <?php echo (!empty($type_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $type; ?>">
-                        <option value="Entrada">Entrada</option>
-                        <option value="Saida">Saída</option>
-                    </select>
-                    <span class="invalid-feedback"><?php echo $type_err; ?></span>
-                </div>
                 <div class="form-group">
                     <p>Selecione o uso:</p>
                     <select name="occupation" id="occupation" class="form-control <?php echo (!empty($occupation_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $occupation; ?>">

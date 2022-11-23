@@ -24,7 +24,7 @@ require_once "../utils/config.php";
     <title>Mansão Digital - Planilha de Entrada</title>
 </head>
 <body>
-<header>
+    <header>
         <div class="inner">
             <div class="logo">
                 <div>
@@ -33,8 +33,7 @@ require_once "../utils/config.php";
             </div>
 
             <nav>
-                <li><span><a href="../table/index.php">Planilha</a></span></li>
-                <li><span><a href="../table/create.php">Adicionar Planilha</a></span></li>
+                <li><span><a href="../index.php">Página Inicial</a></span></li>
                 <li><span><a href="../dashboard/logout.php" class="button">Desconectar</a></span></li>
             </nav>
         </div>
@@ -51,7 +50,6 @@ require_once "../utils/config.php";
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Tipo</th>
                 <th scope="col">Data</th>
                 <th scope="col">Serviço</th>
                 <th scope="col">Valor</th>
@@ -61,11 +59,10 @@ require_once "../utils/config.php";
         <tbody>
             <?php
                 $link = mysqli_connect("localhost", "root", "", "mansaodigital");
-                $query = mysqli_query($link, "SELECT * FROM services WHERE type = 'Entrada' ORDER by id");
+                $query = mysqli_query($link, "SELECT * FROM services ORDER by id");
                 while($row = $query->fetch_array()) {
                     echo "<tr>";
                     echo "<th scope="."row".">".$row['id']."</th>";
-                    echo "<td>" . $row['type'] . "</td>";
                     $date=date_create($row['datestart']);
                     echo "<td>" . date_format($date, "d/m/Y") . "</td>";
                     echo "<td>" . $row['occupation'] . "</td>";
@@ -82,7 +79,7 @@ require_once "../utils/config.php";
         </tbody>
     </table>
     <br>
-    <a href="../table/viewleave.php" class="btn btn-success">Criar uma entrada</a>
+    <a href="../table/create-to-enter.php" class="btn btn-success">Criar uma entrada</a>
     </div>
 </body>
 </html>

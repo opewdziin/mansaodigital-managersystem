@@ -2,7 +2,7 @@
 session_start();
  
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: ../dashboard/login.php");
     exit;
 }
 require_once "./utils/config.php";
@@ -36,8 +36,7 @@ require_once "./utils/config.php";
             </div>
 
             <nav>
-                <li><span><a href="../table/index.php">Planilha</a></span></li>
-                <li><span><a href="../table/create.php">Adicionar Planilha</a></span></li>
+                <li><span><a href="index.php">Página Inicial</a></span></li>
                 <li><span><a href="../dashboard/logout.php" class="button">Desconectar</a></span></li>
             </nav>
         </div>
