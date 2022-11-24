@@ -53,7 +53,7 @@ require_once "../utils/config.php";
                 <th scope="col">Data</th>
                 <th scope="col">Serviço</th>
                 <th scope="col">Valor</th>
-                <th scope="col"></th>
+                <th scope="col">Opções</th>
             </tr>
         </thead>
         <tbody>
