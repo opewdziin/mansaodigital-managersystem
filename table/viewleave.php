@@ -62,12 +62,12 @@ require_once "../utils/config.php";
                 $query = mysqli_query($link, "SELECT * FROM leave_service ORDER by id");
                 while($row = $query->fetch_array()) {
                     echo "<tr>";
-                    echo "<th scope="."row".">".$row['id']."</th>";
+                    echo "<th scope="."row".">" . $row['id'] . "</th>";
                     $date=date_create($row['date']);
                     echo "<td>" . date_format($date, "d/m/Y") . "</td>";
                     echo "<td>" . $row['description'] . "</td>";
                     echo "<td>R$" . $row['price'] . "</td>";
-                    echo "<td><a href=" . "../table/create-to-leave.php" . " class=" . "btn-danger" . ">Deletar</a></td>";
+                    echo "<td><a href=" . "../table/functions/delete-leave.php?id=". $row['id'] . " class=" . "btn-danger" . ">Deletar</a></td>";
                     echo "</tr>";
                 }
             ?>

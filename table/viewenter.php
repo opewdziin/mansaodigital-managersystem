@@ -67,12 +67,7 @@ require_once "../utils/config.php";
                     echo "<td>" . date_format($date, "d/m/Y") . "</td>";
                     echo "<td>" . $row['occupation'] . "</td>";
                     echo "<td>R$" . $row['pricestart'] . "</td>";
-                    echo "<td><select name="."options".">";
-                    echo "<option value=".""."></option>";
-                    echo "<option value="."change".">Editar</option>";
-                    echo "<option value="."delete".">Excluir</option>";
-                    echo "<option value="."create-exit".">Criar saída</option>";
-                    echo "</select></td>";
+                    echo "<td><a href=" . "../table/functions/delete-enter.php?id=". $row['id'] . " class=" . "btn-danger" . " >Deletar</a></td>";
                     echo "</tr>";
                 }
             ?>
